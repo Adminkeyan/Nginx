@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/nginx-ec2-deploy.git'
+                git 'https://github.com/Adminkeyan/Nginx.git'
             }
         }
 
