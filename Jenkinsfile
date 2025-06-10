@@ -14,11 +14,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Adminkeyan/Nginx.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
