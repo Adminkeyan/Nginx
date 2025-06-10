@@ -7,7 +7,7 @@ pipeline {
         AWS_ACCOUNT_ID = '489502444480'  // replace with yours
         IMAGE_TAG = 'latest'
         ECR_URL = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${REPO_NAME}"
-        EC2_HOST = 'ubuntu@<13.232.249.252>'  // use Ubuntu or ec2-user
+        EC2_HOST = 'ubuntu@13.232.249.252'  // use Ubuntu or ec2-user
         SSH_KEY = credentials('ec2-key')       // Add SSH private key in Jenkins
         AWS_ACCESS_KEY_ID = credentials('aws-access-key')
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
