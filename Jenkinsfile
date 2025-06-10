@@ -44,12 +44,14 @@ pipeline {
         stage('Deploy on EC2') {
             steps {
                 sh '''
-                ssh -o StrictHostKeyChecking=no -i $SSH_KEY $EC2_HOST
+                ssh -o StrictHostKeyChecking=no -i $SSH_KEY $EC2_HOST << 'EOF'
                   aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_URL
                   docker pull $ECR_URL:$IMAGE_TAG
                   docker stop nginx || true
                   docker rm nginx || true
                   docker run -d --name nginx -p 80:80 $ECR_URL:$IMAGE_TAG
+                EOF
+                '''
             }
         }
     }
